@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Carter+One&family=Gloria+Hallelujah&family=Monoton&family=Permanent+Marker&display=swap');
+
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+.login-container{
+    padding: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.login-form{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 50px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 10px 6px 6px rgb(22, 22, 22);
+}
+
+h1{
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 500;
+    font-size: 60pt;
+}
+
+h2{
+    font-family: 'Abril Fatface', cursive;
+    font-weight: bold;
+    margin-top: 15px;
+
+}
+
+.credentials{
+    
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 6px 6px rgb(22, 22, 22);
+}
+
+#username{
+    margin-bottom: 15px;
+    margin-top: 25px;
+}
+
+#password{
+    margin-bottom: 15px;
+}
+
+#register-btn{
+    margin-left: 20px;
+}
