@@ -4,14 +4,16 @@
 
 <div class="login-container">
 <form class="login-form">
-  <img src="https://lh3.googleusercontent.com/BsJVrko8kqoCiEcGmgS9KV3jvOkU0XiWSmHp8btgpa-Ct7Fnc7dgjwN45GAcgbGDbs4tFy7ef-H5kp0SLPwzevGGqJ4X8jrVnFEIR23VKs60_IkPeSi7sXuVaEc7JjeX7az0wXzITlkvehB35uJA0RKBUZ--cIlDDppU-2FURWyvznppLc4ENWWsHCj54HjCuU9cxTvSC3zGlpe7j_OLdui_PotNZnu3TcY4FyPJcsrTjX-_nLZIsE2j_HFQfce6MskTLMrNOMVbwktsROw2vStPensUSX1_Svof1hQBQUgkUrXg4Ai0dGdYIeOklpolueGuq0ichWULIWHWW753jDPWdqGGcKs3rlLmIIgLgzwUqLAkujcJaWvsZW4rIiJC5yD_wxxniqo7gNrpo7wAykD2TVWJ8pfMCj1IDlQ7NPI85sHsmgIEygSLnlaAYKxh4N46K_0PnI6U4gjuEUPqo4KDR9U7Fd8cwyV3k3rMC8al84Qxurfrt6kQBZDHEorbk7gZn_17Qen0Mn3esizowcgJA5AFHpTmCF9Ku6tm9I_BFooq8aP2aQJQ99V8zt04NUX43ZxRiMGNGVQLHRr_PW4lYazgi7aW20pBIGsxWG60vuFZ0VBIE92wnKqhPdZgLOBqHbTPbP6wXu_ebSA311MPG23a1KSzrOG_IhoFZSNBhgjW0EcPIre_BEvzabiFECnDWN3fZFD1gM-i5EfychJ2Z4RmiTAk3adDYjr_lds_H_ANFURMeAc0d4I=w362-h209-no" style="width: 450px; height: 250px;" alt="logo">
+  <img src="https://media.discordapp.net/attachments/958790089184522280/964253225438019595/air_network_cropped.png" style="width: 450px; height: 250px;" alt="logo">
     <!-- <h1>Air Network</h1> -->
+    <br>
     <h2>Please Login</h2>
-    <button class="credentials" id="register-btn" type="submit" >Create Profile</button><br>
-    <h2>-or-</h2>
+    <!-- <h2>Please Login</h2> -->
     <input class="credentials" id="username" type="text" placeholder="Username"><br>
     <input class="credentials" id="password" type="password" placeholder="Password"><br>
     <button class="credentials" type="submit" (click)=" $event.preventDefault()">Login</button>
+    <button class="credentials" id="register-btn" type="submit" >
+      <a  routerLink="/register">Create Profile</a></button><br>
     <app-register *ngIf="isVisable"></app-register>
 </form>
 </div>
