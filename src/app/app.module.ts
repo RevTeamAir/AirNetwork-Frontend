@@ -8,7 +8,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { FeedComponent } from './pages/feed/feed.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NavComponent } from './shared/nav/nav.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { PostcardComponent } from './pages/post/postcard/postcard.component';
+import { PostlistComponent } from './pages/post/postlist/postlist.component';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,15 @@ import { NavComponent } from './shared/nav/nav.component';
     RegisterComponent,
     FeedComponent,
     ProfileComponent,
-    NavComponent
+    NavComponent,
+    PostcardComponent,
+    PostlistComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
