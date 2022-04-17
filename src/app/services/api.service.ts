@@ -1,31 +1,48 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Post } from '../models/Post';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+
   constructor(private httpCli : HttpClient) { }
 
-  getAllPosts() {
-    //gets all post that have been created
-    return this.httpCli.get<any>("")
+  getUserGivenId(userId : number){
+    console.log("apiservice")
+    return this.httpCli.get<any>(`http:localhost:9000/user/${userId}`)
+
   }
 
-  getOnePost(postId : number) {
-    //gets one post by its id
+  getAllPostsForUser(userId : number){
+    return this.httpCli.get<any>(`http:localhost:9000/post/${userId}`)
+
   }
 
-  getAllPostForUser(userId : number) {
-    //gets all post for a given user
+  deleteOnePost(){
+
   }
 
-  createPost(userId : number) {
-    return this.httpCli.get<any>("http://localhost:9000/post/${userId}")
+  login(user : any){
+    return this.httpCli.post<any>(`http://localhost:9000/session`, user, {
+      withCredentials: true
+    })
+  } 
+
+  checkSession(){
+    return this.httpCli.get<any>('http://localhost:9000/session', {
+      withCredentials: true
+    });
   }
-  createPostWithPic(userId : number) {
-    return this.httpCli.get<any>("http://localhost:9000/post/upload/${userId}")
+
+  logout(){
+    return this.httpCli.delete<any>('http://localhost:9000/session', {
+      withCredentials: true
+    });
   }
+
 
 }
