@@ -26,13 +26,23 @@ export class ApiService {
 
   }
 
-  /* login(username: string, password: string){
-    return this.httpCli.post<any>(`http://localhost:4200/session`,
-      
-    {
+  login(user : any){
+    return this.httpCli.post<any>(`http://localhost:9000/session`, user, {
       withCredentials: true
     })
-  } */
+  } 
+
+  checkSession(){
+    return this.httpCli.get<any>('http://localhost:9000/session', {
+      withCredentials: true
+    });
+  }
+
+  logout(){
+    return this.httpCli.delete<any>('http://localhost:9000/session', {
+      withCredentials: true
+    });
+  }
 
 
 }

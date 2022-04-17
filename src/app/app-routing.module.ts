@@ -10,14 +10,16 @@ import { RegisterComponent } from './pages/register/register.component';
 const routes: Routes = [
   //http://localhost:4200/login
   {path:"", component: LoginComponent},
+
   //http://localhost:4200/register
   {path:"register", component: RegisterComponent},
+
   //http://localhost:4200/profile
-  /* {path:"profile", component: ProfileComponent}, */
-  {path: "pcard", component: PostcardComponent},
-  /* {path: "plist", component: PostlistComponent}, */
+  {path:"profile", component: ProfileComponent},
+ 
   //http://localhost:4200/feed
   {path:"feed", component: FeedComponent},
+  
   //redirect to login?
   {path:"**", redirectTo:""}
 ];
