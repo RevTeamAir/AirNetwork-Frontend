@@ -11,6 +11,13 @@ export class ApiService {
 
   constructor(private httpCli : HttpClient) { }
 
+  getAllPosts(){
+    return this.httpCli.get<any>("http://localhost:9000/post", {
+      withCredentials: true 
+    });
+  }
+
+
   getUserGivenId(userId : number){
     console.log("apiservice")
     return this.httpCli.get<any>(`http:localhost:9000/user/${userId}`)
@@ -42,11 +49,4 @@ export class ApiService {
       withCredentials: true
     });
   }
-
-  getAllPosts(){
-    return this.httpCli.get<any>('http://localhost:9000/post', {
-      withCredentials: true
-    });
-  }
-
 }

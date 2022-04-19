@@ -11,11 +11,13 @@ import { ApiService } from 'src/app/services/api.service';
 export class FeedComponent implements OnInit {
 
   jsonResponse : JsonResponse = <JsonResponse>{};
+  posts : Array<any> = [];
   postArray : Array<any> = [];
 
   constructor(private router : Router, private apiService : ApiService) { }
 
   ngOnInit(): void {
+      this.getAllPosts();
     //check session
     this.apiService.checkSession().subscribe(response => {
       this.jsonResponse = response;
@@ -23,15 +25,15 @@ export class FeedComponent implements OnInit {
       if (!this.jsonResponse.success){ // if no session, redirect to login page
         this.router.navigate(['/']);
       } 
-      
-      this.getAllPost();
-      console.log(this.postArray);
+      this.posts = this.jsonResponse.data.posts;
+      console.log(this.posts);
     });
   }
 
-  getAllPost() {
+  getAllPosts() {
     this.apiService.getAllPosts().subscribe(responseBody => {
-      this.postArray = responseBody.results;
+      console.log(responseBody.data)
+      this.postArray = responseBody.data;
     }); 
   }
 }

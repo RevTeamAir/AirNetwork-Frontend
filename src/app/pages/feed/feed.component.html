@@ -6,4 +6,6 @@
 
 <div>This is the feed page!</div>
 
-<div></div>
+<div *ngFor="let post of postArray" class="posts-card">
+    <label>{{post.description}}</label>
+</div>
