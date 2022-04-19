@@ -1,28 +1,41 @@
+
+
 <video id="background-video" autoplay loop muted>
-    <source src="https://static.videezy.com/system/resources/previews/000/013/085/original/Smoke_5_-_48s_-_4k_res.mp4" type="video/mp4">
-  </video>
+  <source src="https://static.videezy.com/system/resources/previews/000/013/085/original/Smoke_5_-_48s_-_4k_res.mp4" type="video/mp4">
+</video>
 
 
-    <div id="create-profile-container">
-        <form id="create-profile-form">
-            <h1>Create Profile</h1>
-            <!-- <form id="upload-form" action="/action_page.php">
-              <div id="profile-picture"></div>
-              <label for="img" id="img-dir">Upload Profile Picture </label><br>
-              <input type="file" id="img" name="img" accept="image/*">
-              <input type="submit">
-        </form> -->
-        <div id="profile-picture"></div>
-        <label for="img" id="img-dir">Upload Profile Picture </label><br>
-        <input type="file" id="img-selector" name="img" accept="image/*"><br>
-        <input id="fname" type="text" placeholder=" First Name" required>
-        <input id="lname" type="text" placeholder=" Last Name" required><br>
-        <input id="username" type="text" placeholder=" Username" required>
-        <input id="password" type="password" placeholder=" Password" required><br>
-        <input id="email" type="email" placeholder=" Email" required><br>
-        <textarea id="bio" type="text" placeholder="  Tell us a little about yourself....."></textarea><br>
-        <button id="submit-btn" type="submit"> Create Profile </button>
-    </form>
+  <div id="create-profile-container">
+      <form #createProfile="ngForm" (ngSubmit)="submit(createProfile)" id="create-profile-form">
+          <h1>Create Profile</h1>
+      <div id="profile-picture"></div>
+      <label for="img" id="img-dir">Upload Profile Picture </label><br>
+     <div id="img-selector"><input type="file"   name="profilePictureLocation"  ngModel>
+      <button id="upload-btn" onclick="uploadFile()">Upload</button></div> 
+      <!-- Ajax JavaScript File Upload to Spring Boot Logic -->
+<!-- <script>
+async function uploadFile() {
+  let formData = new FormData(); 
+  formData.append("file", fileupload.files[0]);
+  let response = await fetch('/upload', {
+    method: "POST", 
+    body: formData
+  }); 
+
+  if (response.status == 200) {
+    alert("File successfully uploaded.");
+  }
+}
+</script> -->
+
+      <input type="text" id="fname" name="firstname" placeholder=" First Name" ngModel required>
+      <input type="text"id="lname" name="lastname" placeholder=" Last Name" ngModel required ><br>
+      <input type="text"id="username" name="username" placeholder=" Username"  ngModel required >
+      <input type="password"id="password" name="password" placeholder=" Password" ngModel required ><br>
+      <input type="email" id="email" name="email" placeholder=" Email" ngModel required><br>
+      <textarea type="text" id="bio" name="bio"  placeholder="  Tell us a little about yourself....." ngModel></textarea><br>
+      <button id="submit-btn" type="submit"> Create Profile </button>
+  </form>
 </div>
 
 

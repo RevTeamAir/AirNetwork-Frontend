@@ -7,9 +7,25 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ApiService {
-
+  postId: any;
 
   constructor(private httpCli : HttpClient) { }
+
+  
+  createProfile(userId: number, firstname: string, lastname: string, username: string, password: string, email: string, profilePictureLocation: string, bio: string){
+    return this.httpCli.post<User>('http://localhost:9000/user', {
+      "userId": userId,
+      "firstname": firstname,
+      "lastname": lastname,
+      "username": username,
+      "password": password,
+      "email": email,
+      "profilePictureLocation": profilePictureLocation,
+      "bio": bio
+    }).subscribe(data => {
+      this.postId = data.userId;
+  })
+}
 
   getUserGivenId(userId : number){
     console.log("apiservice")
