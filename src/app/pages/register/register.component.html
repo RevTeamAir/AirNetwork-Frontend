@@ -6,14 +6,15 @@
 
 
   <div id="create-profile-container">
-      <form #createProfile="ngForm" (ngSubmit)="submit(createProfile)" id="create-profile-form">
+      <form #createProfile="ngForm" (ngSubmit)="submit(createProfile.value)" id="create-profile-form">
           <h1>Create Profile</h1>
       <div id="profile-picture"></div>
       <label for="img" id="img-dir">Upload Profile Picture </label><br>
      <div id="img-selector"><input type="file"   name="profilePictureLocation"  ngModel>
       <button id="upload-btn" onclick="uploadFile()">Upload</button></div> 
+
       <!-- Ajax JavaScript File Upload to Spring Boot Logic -->
-<!-- <script>
+<script>
 async function uploadFile() {
   let formData = new FormData(); 
   formData.append("file", fileupload.files[0]);
@@ -26,7 +27,7 @@ async function uploadFile() {
     alert("File successfully uploaded.");
   }
 }
-</script> -->
+</script>
 
       <input type="text" id="fname" name="firstname" placeholder=" First Name" ngModel required>
       <input type="text"id="lname" name="lastname" placeholder=" Last Name" ngModel required ><br>
