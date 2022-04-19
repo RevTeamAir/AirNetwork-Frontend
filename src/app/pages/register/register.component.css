@@ -29,10 +29,7 @@
     box-shadow: 10px 6px 6px rgb(22, 22, 22);
 }
 
-#upload-form{
-    
 
-}
 
 #profile-picture{
     height: 100px;
@@ -46,8 +43,8 @@
 }
 
 #img-dir{
-
     font-weight: bolder;
+    border-radius: 7px;
 
 }
 
@@ -57,6 +54,13 @@
     margin: 15px;
     border-radius: 7px;
     box-shadow: 2px 6px 6px rgb(22, 22, 22);  
+}
+
+
+#upload-btn{
+    background-color: black;
+    color:white;
+    border-radius: 7px;
 }
 
 h1{

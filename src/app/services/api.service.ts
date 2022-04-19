@@ -7,16 +7,25 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ApiService {
-
+  postId: any;
 
   constructor(private httpCli : HttpClient) { }
 
-  getAllPosts(){
-    return this.httpCli.get<any>("http://localhost:9000/post", {
-      withCredentials: true 
-    });
-  }
-
+  
+  createProfile(userId: number, firstname: string, lastname: string, username: string, password: string, email: string, profilePictureLocation: string, bio: string){
+    return this.httpCli.post<User>('http://localhost:9000/user', {
+      "userId": userId,
+      "firstname": firstname,
+      "lastname": lastname,
+      "username": username,
+      "password": password,
+      "email": email,
+      "profilePictureLocation": profilePictureLocation,
+      "bio": bio
+    }).subscribe(data => {
+      this.postId = data.userId;
+  })
+}
 
   getUserGivenId(userId : number){
     console.log("apiservice")
@@ -47,6 +56,12 @@ export class ApiService {
   logout(){
     return this.httpCli.delete<any>('http://localhost:9000/session', {
       withCredentials: true
+    });
+  }
+
+  getAllPosts(){
+    return this.httpCli.get<any>("http://localhost:9000/post", {
+      withCredentials: true 
     });
   }
 }
