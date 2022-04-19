@@ -24,14 +24,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //creates user, puts them in the database and redirects page to Feed page
   submit(createProfile: any){
     this.apiService.createProfile(createProfile).subscribe(responseBody => {
       console.log(responseBody)
     })
     
-
     }
 
-    //send data to postgres
+   
 
   }
