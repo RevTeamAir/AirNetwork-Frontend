@@ -35,7 +35,6 @@ export class ApiService {
 
   getAllPostsForUser(userId : number){
     return this.httpCli.get<any>(`http:localhost:9000/post/${userId}`)
-
   }
 
   deleteOnePost(){
@@ -60,5 +59,10 @@ export class ApiService {
     });
   }
 
+  getAllPosts(){
+    return this.httpCli.get<any>('http://localhost:9000/post', {
+      withCredentials: true
+    });
+  }
 
 }
