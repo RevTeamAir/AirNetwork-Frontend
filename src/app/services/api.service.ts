@@ -12,19 +12,10 @@ export class ApiService {
   constructor(private httpCli : HttpClient) { }
 
   
-  createProfile(userId: number, firstname: string, lastname: string, username: string, password: string, email: string, profilePictureLocation: string, bio: string){
-    return this.httpCli.post<User>('http://localhost:9000/user', {
-      "userId": userId,
-      "firstname": firstname,
-      "lastname": lastname,
-      "username": username,
-      "password": password,
-      "email": email,
-      "profilePictureLocation": profilePictureLocation,
-      "bio": bio
-    }).subscribe(data => {
-      this.postId = data.userId;
-  })
+  createProfile(createProfile : any){
+    return this.httpCli.post<any>('http://localhost:9000/user', createProfile,{
+      withCredentials: true,
+    })
 }
 
   getUserGivenId(userId : number){

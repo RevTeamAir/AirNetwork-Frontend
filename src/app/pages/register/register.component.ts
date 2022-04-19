@@ -25,13 +25,13 @@ export class RegisterComponent implements OnInit {
   }
 
   submit(createProfile: any){
-    this.apiService.createProfile(this.userId, this.firstname, this.lastname, this.username, this.password, this.email, this.profilePictureLocation, this.bio)
-    console.log("form submitted", createProfile)
-     
+    this.apiService.createProfile(createProfile).subscribe(responseBody => {
+      console.log(responseBody)
+    })
+    
+
     }
 
-    // createProfile(){
-    //   this.apiService.createProfile(this.userId, this.firstname, this.lastname, this.username, this.password, this.email, this.profilePictureLocation, this.bio)
-  
-    // }
+    //send data to postgres
+
   }
