@@ -3,9 +3,10 @@
     create a post form to fill out 
     display post users have created 
 -->
-
-<div>This is the feed page!</div>
-
 <div *ngFor="let post of postArray" class="posts-card">
-    <label>{{post.description}}</label>
+    <label class="post-username">{{post.authorIdFK.username}}</label>
+    <p>{{post.description}}</p>
+    <button class="like-bttn">Like</button>
 </div>
+
+<button class="create-post-btn">Create Post</button>
