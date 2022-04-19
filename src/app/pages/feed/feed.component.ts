@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JsonResponse } from 'src/app/models/JsonResponse';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,24 +10,28 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class FeedComponent implements OnInit {
 
-  posts : Array<any> = [];
+  jsonResponse : JsonResponse = <JsonResponse>{};
+  postArray : Array<any> = [];
 
-  constructor(private api : ApiService, router : Router) { }
+  constructor(private router : Router, private apiService : ApiService) { }
 
   ngOnInit(): void {
-    this.getAllPosts;
+    //check session
+    this.apiService.checkSession().subscribe(response => {
+      this.jsonResponse = response;
+
+      if (!this.jsonResponse.success){ // if no session, redirect to login page
+        this.router.navigate(['/']);
+      } 
+      
+      this.getAllPost();
+      console.log(this.postArray);
+    });
   }
 
-  getAllPosts() {
-    this.api.getAllPosts().subscribe(responseBody => {
-      this.posts = responseBody.results;
-    })
+  getAllPost() {
+    this.apiService.getAllPosts().subscribe(responseBody => {
+      this.postArray = responseBody.results;
+    }); 
   }
-
-  createPost() {
-    this.api.createPost().subscribe(responseBody => {
-      this.posts = responseBody.results;
-    })
-  }
-
 }

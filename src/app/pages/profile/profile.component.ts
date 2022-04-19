@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { JsonResponse } from 'src/app/models/JsonResponse';
 import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -8,20 +10,29 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  posts : Array<any> = [];
+  isVisible : boolean = false;
+  user : User = <User>{};
+  jsonResponse : JsonResponse = <JsonResponse>{};
 
-  userId : number = 1
+  constructor(private apiService : ApiService, private router : Router) {  }
+  
+  ngOnInit(): void {
+    this.apiService.checkSession().subscribe(response => {
+      this.jsonResponse = response;
 
-  constructor(private apiService : ApiService) {  
+      if (this.jsonResponse.success == true){ // session found so user 
+        this.user = this.jsonResponse.data;
+        this.posts = this.jsonResponse.data.posts;
+        console.log(this.posts);
+      } else{
+        this.router.navigate(['/']);
+      }
+
+
+    });
     
   }
   
-  ngOnInit(): void {
-    this.getUserGivenId();
-  }
-
-  getUserGivenId(){
-    this.apiService.getUserGivenId(this.userId).subscribe(data => {
-      console.log("hello from profile" + data);
-    })
-  }
 }
+
