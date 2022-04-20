@@ -17,7 +17,7 @@
         <div id="card">
             <div id="post-name">Post {{i + 1}}</div>
             <div id="img-container">
-              <img class="post-img" [src]="this.user.profilePictureLocation">
+              <img class="post-img" [src]="post.postImageLocation">
             </div>
             <p class="post-description">{{post.description}}</p>
             <div class="date-like-container">
@@ -37,3 +37,5 @@
     </div>
   </div>
 </div>
+
+<app-postlist></app-postlist>
