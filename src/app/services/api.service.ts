@@ -57,6 +57,14 @@ export class ApiService {
   }
 
   likePost(userId : number, postId : number) {
-    return this.httpCli.post<any>(`http://localhost:9000/like/author/${userId}/post/${postId}`, {userId, postId})
+    return this.httpCli.post<any>(`http://localhost:9000/like/author/${userId}/post/${postId}`, {
+      withCredentials: true
+    });
+  }
+
+  createPost(userId : number, createPost : any){
+    return this.httpCli.post<any>(`http://localhost:9000/post/${userId}`, createPost, {
+      withCredentials: true 
+    });
   }
 }

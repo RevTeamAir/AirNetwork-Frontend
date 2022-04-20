@@ -1,19 +1,52 @@
+<app-nav></app-nav>
 <!-- TODO:
     create a post button
     create a post form to fill out 
     display post users have created 
 -->
-<<<<<<< HEAD
-<div *ngFor="let post of postArray" class="posts-card">
-    <label class="post-username">{{post.authorIdFK.username}}</label>
-    <p>{{post.description}}</p>
-    <button class="like-bttn">Like</button>
+<div class="flex-container">
+    <div *ngFor="let post of postArray" class="posts-card">
+        <label id="post-username">{{post.authorIdFK.username}}</label>
+        <p class="post-description">{{post.description}}</p>
+        <div id="img-container">
+            <img class="post-img" [src]="post.postImageLocation">
+        </div>
+        <div class="date-like-container">
+            <div>
+              <p>{{post.creationDate | date}}</p>
+            </div>
+            <div class="like-container">
+              <i *ngIf="isVisible" class="material-icons like-icon">thumb_up</i> 
+              <i *ngIf="!isVisible" class="material-icons like-icon">thumb_down</i>
+              <p *ngIf="isLike" class="count">{{post.likeCount}}</p>
+              <p *ngIf="!isLike" class="count">3</p>
+            </div>
+          </div>
+    </div>
+
+    <button class="create-post-btn">Create Post</button>
 </div>
 
-<button class="create-post-btn">Create Post</button>
-=======
-<app-nav></app-nav>
-<div>This is the feed page!</div>
+<!-- <div class="flex-right">
+    <div id="card-container" *ngFor="let post of posts; index as i">
+      <div id="card">
+          <div id="post-name">Post {{i + 1}}</div>
+          <div id="img-container">
+            <img class="post-img" [src]="this.user.profilePictureLocation">
+          </div>
+          <p class="post-description">{{post.description}}</p>
+          <div class="date-like-container">
+            <div>
+              <p>{{post.creationDate | date}}</p>
+            </div>
+            <div class="like-container">
+              <i *ngIf="isVisible" class="material-icons like-icon">thumb_up</i> 
+              <i *ngIf="!isVisible" class="material-icons like-icon">thumb_down</i>
+              <p *ngIf="isLike" class="count">{{post.likeCount}}</p>
+              <p *ngIf="!isLike" class="count">3</p>
+            </div>
+          </div>
 
-<div></div>
->>>>>>> 53cdf0aadd7526f65cddce28153f426b885e8ced
+      </div>
+    </div>
+  </div> -->

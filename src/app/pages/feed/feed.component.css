@@ -1,0 +1,64 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+.button-pos{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+
+    top: -5px;
+    right: -5px;
+}
+
+#img-container{
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .post-img{
+    width: 80%;
+    height: 80%;
+  }
+#like-bttn{
+    font-size: 1rem;
+    padding: 5px 10px;
+    color: #585858;
+}
+#post-username{
+    font-size: larger;
+    font-weight: 700;
+}
+
+.posts-card {
+    background-color: rgb(80, 113, 150);
+    margin-top: 25px;
+    padding: 10px;
+    width: 400px;
+    height: 250px;
+    border-radius: 15px;
+}
+
+.create-post-btn{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+.material-icons{
+    color: #034675;
+
+    
+    justify-content: space-between;
+    margin-right: 30px;
+}
+
+.date-like-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.like-container{
+    display: flex;
+    justify-content: space-between;
+}

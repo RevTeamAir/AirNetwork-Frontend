@@ -12,6 +12,8 @@ export class FeedComponent implements OnInit {
 
   jsonResponse : JsonResponse = <JsonResponse>{};
   postArray : Array<any> = [];
+  isVisible : boolean = true;
+  isLike : boolean = false;
 
   constructor(private router : Router, private apiService : ApiService) { }
 
@@ -27,6 +29,7 @@ export class FeedComponent implements OnInit {
     });
   }
 
+  //gets all the posts created 
   getAllPosts() {
     this.apiService.getAllPosts().subscribe(responseBody => {
       console.log(responseBody.data)
@@ -34,7 +37,9 @@ export class FeedComponent implements OnInit {
     }); 
   }
 
+  //likes a post if the like button on the post is clicked 
   likePost(userId : number, postId : number) {
-    this.apiService.likePost(userId, postId)
+    this.isVisible = false;
+    this.isLike = true;
   }
 }
