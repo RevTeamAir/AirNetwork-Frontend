@@ -11,8 +11,9 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileComponent implements OnInit {
   posts : Array<any> = [];
-  isVisible : boolean = false;
+  isVisible : boolean = true;
   user : User = <User>{};
+  isLike : number = 0;
   jsonResponse : JsonResponse = <JsonResponse>{};
 
   constructor(private apiService : ApiService, private router : Router) {  }
@@ -24,13 +25,16 @@ export class ProfileComponent implements OnInit {
       if (this.jsonResponse.success == true){ // session found so user 
         this.user = this.jsonResponse.data;
         this.posts = this.jsonResponse.data.posts;
-        console.log(this.posts);
+        console.log("posts from profile: " + this.posts);
+        console.log("user from profile:" + this.user.firstname);
       } else{
         this.router.navigate(['/']);
       }
 
 
     });
+
+    
     
   }
   
