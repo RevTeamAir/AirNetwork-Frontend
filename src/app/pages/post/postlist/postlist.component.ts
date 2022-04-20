@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User';
+import { JsonResponse } from 'src/app/models/JsonResponse';
 import { ApiService } from 'src/app/services/api.service';
 
 
@@ -10,20 +10,34 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PostlistComponent implements OnInit {
   posts: Array<any> = [];
+  filteredPosts : Array<any> = [];
   userId= 1;
+  isVisible : boolean = true;
+  isLike : number = 0;
+  classes : object = {};
+  jsonResponse : JsonResponse = <JsonResponse>{};
 
   constructor(private apiService : ApiService) { }
 
   ngOnInit(): void {
-    /* this.getUserGivenId(); */
-    this.getAllPostsforUser();
+   this.getAllPosts();
   }
 
 
-  getAllPostsforUser(){
-    this.apiService.getAllPostsForUser(this.userId).subscribe(data => {
-      console.log(data);
+  getAllPosts(){
+    this.apiService.getAllPosts().subscribe(response => {
+      this.jsonResponse = response;
+      this.posts = this.jsonResponse.data;
+      //this.filteredPosts = this.posts.filter();
     });
+  } 
+
+  setClasses(){
+    this.classes = {
+
+    }
   }
 
-}
+} 
+
+ 
