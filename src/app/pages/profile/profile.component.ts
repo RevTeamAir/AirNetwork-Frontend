@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProfileComponent implements OnInit {
   posts : Array<any> = [];
+  mapPosts : Array<any> = [];
   isVisible : boolean = true;
   user : User = <User>{};
   isLike : number = 0;
@@ -25,6 +26,7 @@ export class ProfileComponent implements OnInit {
       if (this.jsonResponse.success == true){ // session found so user 
         this.user = this.jsonResponse.data;
         this.posts = this.jsonResponse.data.posts;
+
         console.log("posts from profile: " + this.posts);
         console.log("user from profile:" + this.user.firstname);
       } else{

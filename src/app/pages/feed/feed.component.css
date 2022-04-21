@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -62,3 +63,9 @@
     display: flex;
     justify-content: space-between;
 }
+=======
+.feed{
+    background: linear-gradient(110deg, rgb(188, 186, 186) 60%, rgb(128, 125, 125) 60%);
+}
+
+>>>>>>> 43acf3c05540344bf1d5055253413587e8d33b6b
