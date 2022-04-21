@@ -1,0 +1,61 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#card{
+    background-color: rgb(99, 118, 141);
+    margin-top: 25px;
+    margin-right: 30px;
+    padding: 10px;
+    border: 6px rgb(146, 136, 136) solid;
+    width: 400px;
+    height: 250px;
+    border-radius: 6px;
+    box-shadow: 10px 5px 5px rgb(67, 71, 76);
+}
+
+#post-name{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  
+  .post-description{
+    margin-top: 10px;
+  }
+  
+  #img-container{
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .post-img{
+    width: 75%;
+    height: 100%;
+  }
+
+  .material-icons{
+      color: #034675;
+  
+      
+      justify-content: space-between;
+      margin-right: 30px;
+  }
+
+  .date-like-container{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .like-container{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .count{
+      margin-left: 10px;
+  }
+  
