@@ -74,8 +74,14 @@ export class ApiService {
   getProfilePic(){
     return this.httpCli.post<any>('http://localhost:9000/upload/{userId}', this.createProfile, {
       withCredentials: true,
-    })
+    });
     
+  }
+
+  uploadProfilePic(userId : number, profilePicFile : any){
+    return this.httpCli.post<any>(`http://localhost:9000/user/upload/${userId}`, profilePicFile, {
+      withCredentials: true,
+    });
   }
 
 }
