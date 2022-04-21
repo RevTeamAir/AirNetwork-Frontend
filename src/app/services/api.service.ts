@@ -7,6 +7,11 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ApiService {
+
+  uploadFile(profilePictureLocation: string) {
+    
+  }
+
   postId: any;
 
   constructor(private httpCli : HttpClient) { }
@@ -22,6 +27,10 @@ export class ApiService {
     console.log("apiservice")
     return this.httpCli.get<any>(`http:localhost:9000/user/${userId}`)
 
+  }
+
+  getUsers(){
+    return this.httpCli.get<any>("http:localhost:9000/user")
   }
 
   getAllPostsForUser(userId : number){
@@ -54,6 +63,13 @@ export class ApiService {
     return this.httpCli.get<any>('http://localhost:9000/post', {
       withCredentials: true
     });
+  }
+
+  getProfilePic(){
+    return this.httpCli.post<any>('http://localhost:9000/upload/{userId}', this.createProfile, {
+      withCredentials: true,
+    })
+    
   }
 
 }

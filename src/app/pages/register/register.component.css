@@ -32,21 +32,22 @@
 
 
 #profile-picture{
-    height: 100px;
-    width: 100px;
-    padding: 100px;
-    border: 2px solid black;
-    border-radius: 50%;
-    margin-left: 25%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+    width: 300px;
+    clip-path: circle();
+   
 }
 
 #img-dir{
     font-weight: bolder;
     border-radius: 7px;
+    margin-top: 20px;
 
 }
+
+.file-input {
+    display: none;
+  }
 
 #img-selector{
     background-color: rgb(245, 237, 237);
@@ -90,4 +91,11 @@ h1{
     padding: 15px;
     border-radius: 7px;
     box-shadow: 2px 6px 6px rgb(22, 22, 22);  
+}
+
+.feedbackMessage{
+    color: rgb(132, 7, 7);
+    border: 3px solid rgb(132, 7, 7);
+    background-color: rgba(251, 67, 67, 0.5);
+
 }
