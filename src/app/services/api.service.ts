@@ -20,12 +20,12 @@ export class ApiService {
 
   getUserGivenId(userId : number){
     console.log("apiservice")
-    return this.httpCli.get<any>(`http:localhost:9000/user/${userId}`)
+    return this.httpCli.get<any>(`http://localhost:9000/user/${userId}`)
 
   }
 
   getAllPostsForUser(userId : number){
-    return this.httpCli.get<any>(`http:localhost:9000/post/${userId}`)
+    return this.httpCli.get<any>(`http://localhost:9000/post/${userId}`)
   }
 
   deleteOnePost(){
@@ -52,6 +52,12 @@ export class ApiService {
 
   getAllPosts(){
     return this.httpCli.get<any>('http://localhost:9000/post', {
+      withCredentials: true
+    });
+  }
+
+  toggleLike(userId : number, postId : number){
+    return this.httpCli.post<any>(`http://localhost:9000/like/author/${userId}/post/${postId}`, {
       withCredentials: true
     });
   }
