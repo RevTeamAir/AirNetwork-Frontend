@@ -14,7 +14,7 @@
     </div>
     <div class="flex-right">
       <div id="card-container" *ngFor="let post of posts; index as i">
-        <div id="card">
+        <div class="card border">
             <div id="post-name">Post {{i + 1}}</div>
             <div id="img-container">
               <img class="post-img" [src]="post.postImageLocation">

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PostcardComponent } from './pages/post/postcard/postcard.component';
 import { PostlistComponent } from './pages/post/postlist/postlist.component';
+import { PictureComponent } from './upload/picture/picture.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PostlistComponent } from './pages/post/postlist/postlist.component';
     ProfileComponent,
     NavComponent,
     PostcardComponent,
-    PostlistComponent
+    PostlistComponent,
+    PictureComponent
   ],
   imports: [
     BrowserModule,

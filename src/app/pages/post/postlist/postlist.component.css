@@ -8,15 +8,23 @@
 }
 
 #card{
-    background-color: rgb(132, 154, 181);
+    background-color: rgb(99, 118, 141);
     margin-top: 25px;
     margin-right: 30px;
     padding: 5px;
-    border: 6px rgb(146, 136, 136) solid;
+    border: 1px white solid;
     width: 600px;
     height: 120%;
     border-radius: 6px;
     box-shadow: 10px 5px 5px rgb(67, 71, 76);
+}
+
+.border {
+    width: 400px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, rgb(39, 151, 173), lightgreen);
+    border-image-slice: 1; 
+    padding: 25px;  
 }
 
 #post-name{
