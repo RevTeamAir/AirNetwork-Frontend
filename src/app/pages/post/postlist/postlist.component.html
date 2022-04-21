@@ -3,7 +3,7 @@
     <div id="card-container" *ngFor="let post of posts; index as i">
       <div id="card">
           <div id="post-name">Post {{i + 1}}</div>
-          <div id="img-container">
+          <div *ngIf="post.postImageLocation != null" id="img-container">
             <img class="post-img" [src]="post.postImageLocation">
           </div>
           <!-- <div *ngIf="!isVisible" id="img-container">

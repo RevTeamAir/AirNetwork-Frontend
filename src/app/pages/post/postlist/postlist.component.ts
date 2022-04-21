@@ -28,7 +28,6 @@ export class PostlistComponent implements OnInit {
     this.apiService.getAllPosts().subscribe(response => {
       this.jsonResponse = response;
       this.posts = this.jsonResponse.data;
-      //this.filteredPosts = this.posts.filter();
     });
   } 
 
