@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Carter+One&family=Gloria+Hallelujah&family=Monoton&family=Permanent+Marker&display=swap');
+
 .friends-label{
+    font-family: 'Abril Fatface', cursive;
+    font-size: 50pt;
+    letter-spacing: 2px;
     margin-left:100px;
     color: white;
 }
@@ -12,6 +17,7 @@
     padding: 25px;
     overflow: auto;
     border-radius: 10px;
+    box-shadow: 10px 5px 5px rgb(67, 71, 76);
     
 }
 
@@ -22,6 +28,7 @@
     height: 50px;
     width: 200px;
     border-radius: 10px;
+    box-shadow: 10px 5px 5px rgb(67, 71, 76);
     
 }
 

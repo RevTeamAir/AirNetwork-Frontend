@@ -1,13 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Carter+One&family=Gloria+Hallelujah&family=Monoton&family=Permanent+Marker&display=swap');
+
 .profile{
+  background: linear-gradient(110deg, rgb(188, 186, 186) 60%, rgb(128, 125, 125) 60%);
+}
+
+.user-info{
+  margin: 25px;
+}
+
+#username{
+  margin-left:75px;
+  font-size: 45pt;
+  letter-spacing: 2px;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.user-img{
+  margin-bottom: 25px;
+}
+
+.profile-picture{
+  margin: 25px;
+  padding-bottom: 15px;
+}
+
+#updateToggle-btn{
+  margin-left: 25px;
+  margin-bottom: 25px;
+}
+
+#button{
+  width: 300px;
+  height: 50px;
+  border: none;
+  background-color: rgb(99, 118, 141);
+  border-radius: 6px;
+}
+
+.update-info-container{
+  margin-left: 25px;
+}
+
+.update-info{
+  margin-right: 5px;
+  margin-top: 5px;
+  border-radius: 6px;
+}
+
+#email, #bio, #submit-btn{
+  width: 384px;
+}
+
+
+
+/* .profile{
     background: linear-gradient(110deg, rgb(188, 186, 186) 60%, rgb(128, 125, 125) 60%);
-  }
+    background-size: cover;
+    
+  } */
   
-  .flex-container {
+  /* .flex-container {
       display: flex;
       flex-direction: row;
-    }
+    } */
     
-    .flex-left {
+    /* /* .flex-left {
       width: 35%;
       height: 100vh;
       margin: 5px;
@@ -15,7 +72,7 @@
       display: flex;
       justify-content: center;
       flex-direction: column;
-    }
+    } */
   
     .user-img{
         border-radius: 50%;
@@ -35,19 +92,19 @@
       clip-path: circle();
     }
   
-    .user-info{
+    /* .user-info{
       margin-top: 50px;
     }
 
     .user-name{
         margin-right: 5px;
-    }
+    } */
     
     .flex-right {
       width: 65%;
       margin: 5px;
       padding: 5px; 
-    }
+    } */
   
     #card-container{
       width: 100%;

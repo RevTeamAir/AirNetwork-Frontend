@@ -3,28 +3,37 @@
   <div class="flex-container">
     <div class="flex-left">
       <div class="user-card">
+          
+        <div>
+          <!-- <div ><h3>User Information</h3></div> -->
+          <div class="user-container">
           <img class="user-img" [src]="this.user.profilePictureLocation">
-        <div class="user-info">
-          <div ><h3>User Information</h3></div>
-          <div><span class="user-name">{{this.user.firstname}}</span><span>{{this.user.lastname}}</span></div>
-          <div>Email: {{this.user.email}}</div>
-          <p>Bio: {{this.user.bio}}</p>
-          <app-friends-list></app-friends-list>
-          <div></div>         
+          <br>
+          <input type="file" id="pic-button" (change)="uploadProfilePic($event)">
+          <h1 class="user-info" id="username">{{this.user.username}}</h1>
+          <h1><span class="user-info">{{this.user.firstname}}</span> <span>{{this.user.lastname}}</span></h1>
+          <h1 class="user-info">Email: {{this.user.email}}</h1>
+          <h1 class="user-info">Bio: {{this.user.bio}}</h1>
+                
         </div>
-        <div>Change Profile Picture:</div>
-        <input type="file" (change)="uploadProfilePic($event)">
+        
       </div>
-      
-      <form #editUserInfo="ngForm" (ngSubmit)="updateInfo(editUserInfo.value)" id="create-profile-form">
-        <input type="text" id="fname" name="firstname" placeholder=" First Name" ngModel required>
-        <input type="text"id="lname" name="lastname" placeholder=" Last Name" ngModel required ><br>
-        <input type="text"id="username" name="username" placeholder=" Username"  ngModel required >
-        <input type="password"id="password" name="password" placeholder=" Password" ngModel required ><br>
-        <input type="email" id="email" name="email" placeholder=" Email" ngModel required><br>
-        <textarea type="text" id="bio" name="bio"  placeholder=" Bio" ngModel></textarea><br>
-        <button id="submit-btn" type="submit"> Update Profile </button> 
+      <div id="updateToggle-btn">
+        <button (click)="toggle()" id="button" >Update Profile</button>
+      </div>
+
+      <div class="update-info-container" *ngIf="show">
+      <form #editUserInfo="ngForm" (ngSubmit)="updateInfo(editUserInfo.value, this.userId)" id="create-profile-form">
+        <input type="text" class="update-info" id="fname" name="firstname" placeholder=" First Name" ngModel required>
+        <input type="text" class="update-info" id="lname" name="lastname" placeholder=" Last Name" ngModel required ><br>
+        <input type="text" class="update-info" id="uname" name="username" placeholder=" Username"  ngModel required >
+        <input type="password" class="update-info" id="password" name="password" placeholder=" Password" ngModel required ><br>
+        <input type="email" class="update-info" id="email" name="email" placeholder=" Email" ngModel required><br>
+        <textarea type="textarea" class="update-info" id="bio" name="bio"  placeholder=" Bio" ngModel></textarea><br>
+        <button id="submit-btn" type="submit"> Confirm Changes </button> 
       </form>
+    </div>
+      <app-friends-list></app-friends-list>
     </div>
     <div class="flex-right">
       <div id="card-container" *ngFor="let post of posts; index as i">
