@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JsonResponse } from 'src/app/models/JsonResponse';
 import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
@@ -16,10 +16,28 @@ export class ProfileComponent implements OnInit {
   user : User = <User>{};
   isLike : number = 0;
   jsonResponse : JsonResponse = <JsonResponse>{};
+  private sub:any;
+  userId: number = 1;
 
-  constructor(private apiService : ApiService, private router : Router) {  }
+  constructor(private apiService : ApiService, private router : Router, private route: ActivatedRoute) {  }
   
   ngOnInit(): void {
+
+    this.sub = this.route.params.subscribe(params => {
+      this.userId = +params['userId']; 
+      console.log(this.userId)
+
+      this.apiService.getUserGivenId(this.userId).subscribe(response=>{
+        this.jsonResponse = response;
+         this.user = this.jsonResponse.data;
+         this.userId = this.jsonResponse.data.id;
+         this.posts = this.jsonResponse.data.posts;
+      }
+        
+        )
+    })
+
+
     this.apiService.checkSession().subscribe(response => {
       this.jsonResponse = response;
 
@@ -31,6 +49,7 @@ export class ProfileComponent implements OnInit {
         console.log("user from profile:" + this.user.firstname);
       } else{
         this.router.navigate(['/']);
+       
       }
 
 

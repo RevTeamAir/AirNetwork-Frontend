@@ -1,6 +1,8 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { findIndex, Observable } from 'rxjs';
+import { JsonResponse } from 'src/app/models/JsonResponse';
 import { User } from 'src/app/models/User';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -12,25 +14,27 @@ import { ApiService } from 'src/app/services/api.service';
 export class NavComponent implements OnInit {
  
   myControl = new FormControl();
-  filterredOptions!: Observable<string[]>;
-  allUsers: User[] = [];
-  autoCopleteList: any[] = [];
+  filterInput : string ="";
+  user : User = <User>{};
+  filteredUsers : Array<any> = []
+  users : Array<any> = []
+  jsonResponse : JsonResponse = <JsonResponse>{};
+  userId : number = 1
 
-  @ViewChild('autocompleteInput')
-  autocompleteInput!: ElementRef;
-    @Output() onSelectedOption = new EventEmitter();
+  constructor(private apiService : ApiService, private router : Router) { }
 
-  constructor(private apiService : ApiService) { }
+  ngDoCheck(): void{
+    this.filteredUsers = this.users.filter((user : any)=> user.firstname.includes(this.filterInput.toLocaleLowerCase()))
+  }
 
   ngOnInit(): void {
 
-    this.apiService.getUsers().subscribe(users => {
-      this.allUsers = users
+    this.apiService.checkSession().subscribe(response => {
+      this.jsonResponse = response
+      this.userId = this.jsonResponse.data.id
     })
-
-    // this.myControl.valueChanges.subscribe(userInput => {
-    //   this.autoCopleteList(userInput)
-    // })
+    
+    this.apiService.getUsers();
 
   }
 
@@ -40,6 +44,18 @@ export class NavComponent implements OnInit {
   })
 }
 
-  
+  searchBar(){
+    this.apiService.getUsers().subscribe(responseBody =>{
+      this.users = responseBody.data
+      this.filteredUsers = this.users
+        this.users = responseBody.data.map((user: { firstname: string; }) => {
+          user.firstname
+        })
+      console.log(responseBody.data)
+    })
+  }
+
 
 }
+
+

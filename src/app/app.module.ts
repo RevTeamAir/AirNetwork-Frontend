@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { PostcardComponent } from './pages/post/postcard/postcard.component';
 import { PostlistComponent } from './pages/post/postlist/postlist.component';
 import { PictureComponent } from './upload/picture/picture.component';
+import { FriendsListComponent } from './shared/friends-list/friends-list.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { PictureComponent } from './upload/picture/picture.component';
     NavComponent,
     PostcardComponent,
     PostlistComponent,
-    PictureComponent
+    PictureComponent,
+    FriendsListComponent
   ],
   imports: [
     BrowserModule,
