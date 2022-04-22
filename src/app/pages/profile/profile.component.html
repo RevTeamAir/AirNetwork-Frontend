@@ -10,8 +10,19 @@
           <p>Bio: {{this.user.bio}}</p>
           <div></div>         
         </div>
+        <div>Change Profile Picture:</div>
         <input type="file" (change)="uploadProfilePic($event)">
-      </div>   
+      </div>
+      
+      <form #editUserInfo="ngForm" (ngSubmit)="updateInfo(editUserInfo.value)" id="create-profile-form">
+        <input type="text" id="fname" name="firstname" placeholder=" First Name" ngModel required>
+        <input type="text"id="lname" name="lastname" placeholder=" Last Name" ngModel required ><br>
+        <input type="text"id="username" name="username" placeholder=" Username"  ngModel required >
+        <input type="password"id="password" name="password" placeholder=" Password" ngModel required ><br>
+        <input type="email" id="email" name="email" placeholder=" Email" ngModel required><br>
+        <textarea type="text" id="bio" name="bio"  placeholder="  Tell us a little about yourself....." ngModel></textarea><br>
+        <button id="submit-btn" type="submit"> Update Profile </button> 
+      </form>
     </div>
     <div class="flex-right">
       <div id="card-container" *ngFor="let post of posts; index as i">
@@ -32,7 +43,6 @@
                 <p *ngIf="!isLike" class="count">3</p>
               </div>
             </div>
-
         </div>
       </div>
     </div>
