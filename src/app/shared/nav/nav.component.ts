@@ -12,6 +12,8 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
+
+  userId : number = 1; //placeholder id
  
   myControl = new FormControl();
   filterInput : string ="";
@@ -19,7 +21,8 @@ export class NavComponent implements OnInit {
   filteredUsers : Array<any> = []
   users : Array<any> = []
   jsonResponse : JsonResponse = <JsonResponse>{};
-  userId : number = 1
+  allUsers: any;
+  
 
   constructor(private apiService : ApiService, private router : Router) { }
 
@@ -32,6 +35,11 @@ export class NavComponent implements OnInit {
     this.apiService.checkSession().subscribe(response => {
       this.jsonResponse = response
       this.userId = this.jsonResponse.data.id
+
+    })
+
+    this.apiService.getUsers().subscribe(users => {
+      this.allUsers = users
     })
     
     this.apiService.getUsers();

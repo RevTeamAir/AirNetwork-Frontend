@@ -10,14 +10,20 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  private sub: any;
+
+  fileName : string ='';
+  userId : number = 0;
+
   posts : Array<any> = [];
   mapPosts : Array<any> = [];
   isVisible : boolean = true;
   user : User = <User>{};
   isLike : number = 0;
   jsonResponse : JsonResponse = <JsonResponse>{};
-  private sub:any;
-  userId: number = 1;
+ 
+  
 
   constructor(private apiService : ApiService, private router : Router, private route: ActivatedRoute) {  }
   
@@ -43,6 +49,7 @@ export class ProfileComponent implements OnInit {
 
       if (this.jsonResponse.success == true){ // session found so user 
         this.user = this.jsonResponse.data;
+        this.userId = this.jsonResponse.data.id;
         this.posts = this.jsonResponse.data.posts;
 
         console.log("posts from profile: " + this.posts);
@@ -57,6 +64,33 @@ export class ProfileComponent implements OnInit {
 
     
     
+  }
+
+  uploadProfilePic(e :any){
+    const file : File = e.target.files[0];
+
+    if (file){
+      this.fileName = file.name;
+
+      const formData = new FormData();
+
+      //formData.append(description)
+
+      formData.append("file", file);
+
+      //send the api request to the backend
+      // this.apiService.uploadProfilePic(this.userId,formData).subscribe(response => {
+      //   console.log(response);
+      // });
+
+      // this.apiService.createPostWithPic(this.userId, formData).subscribe(response => {
+        //console.log(response);
+      //});
+    }
+  }
+
+  updateInfo(form : any){
+
   }
   
 }
