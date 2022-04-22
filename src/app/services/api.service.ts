@@ -96,4 +96,11 @@ export class ApiService {
     });
   }
 
+  updateUserInfo(form : User, userId : number){
+    form.id = userId;
+    return this.httpCli.put<any>('http://localhost:9000/user', form,{
+      withCredentials: true 
+    });
+  }
+
 }

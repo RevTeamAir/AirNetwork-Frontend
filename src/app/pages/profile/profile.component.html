@@ -7,6 +7,7 @@
         <div class="user-info">
           <div ><h3>User Information</h3></div>
           <div><span class="user-name">{{this.user.firstname}}</span><span>{{this.user.lastname}}</span></div>
+          <div>Email: {{this.user.email}}</div>
           <p>Bio: {{this.user.bio}}</p>
           <div></div>         
         </div>
@@ -20,7 +21,7 @@
         <input type="text"id="username" name="username" placeholder=" Username"  ngModel required >
         <input type="password"id="password" name="password" placeholder=" Password" ngModel required ><br>
         <input type="email" id="email" name="email" placeholder=" Email" ngModel required><br>
-        <textarea type="text" id="bio" name="bio"  placeholder="  Tell us a little about yourself....." ngModel></textarea><br>
+        <textarea type="text" id="bio" name="bio"  placeholder=" Bio" ngModel></textarea><br>
         <button id="submit-btn" type="submit"> Update Profile </button> 
       </form>
     </div>
