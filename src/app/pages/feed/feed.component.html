@@ -1,7 +1,43 @@
+<app-nav></app-nav>
 <!-- TODO:
     create a post button
     create a post form to fill out 
     display post users have created 
 -->
-<app-nav></app-nav>
 <app-postlist></app-postlist>
+<<<<<<< HEAD
+<button class="btn btn-create btn-outline-primary" (click)="open(content)">Create Post</button>
+<div>
+   <!-- <app-createpost/> -->
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Post</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" ngNativeValidate>
+        <div class="form-group">
+          <label for="Description">Description</label>
+          <div class="input-group">
+            <input id="Description" class="form-control" name="description" ngModel required>
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Default file input example</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+        </div>
+        <div class="border text-center">
+            <button data-dismiss="modal" class="btn btn-info" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <!-- <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')"></button>
+    </div> -->
+  </ng-template>
+=======
+>>>>>>> 8a8fe5cab65cb5cb39b082c259bedae10c05a1cd

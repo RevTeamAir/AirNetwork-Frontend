@@ -60,7 +60,13 @@ export class ApiService {
   }
 
   getAllPosts(){
-    return this.httpCli.get<any>('http://localhost:9000/post', {
+    return this.httpCli.get<any>("http://localhost:9000/post", {
+      withCredentials: true 
+    });
+  }
+
+  likePost(userId : number, postId : number) {
+    return this.httpCli.post<any>(`http://localhost:9000/like/author/${userId}/post/${postId}`, {
       withCredentials: true
     });
   }
@@ -81,6 +87,12 @@ export class ApiService {
   uploadProfilePic(userId : number, profilePicFile : any){
     return this.httpCli.post<any>(`http://localhost:9000/user/upload/${userId}`, profilePicFile, {
       withCredentials: true,
+    });
+  }
+
+  createPost(userId : number, createPost : any){
+    return this.httpCli.post<any>(`http://localhost:9000/post/${userId}`, createPost, {
+      withCredentials: true 
     });
   }
 
