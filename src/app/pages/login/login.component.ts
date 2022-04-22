@@ -35,11 +35,14 @@ export class LoginComponent implements OnInit {
   login(value : any){
     this.isVisible = false;
 
+    console.log(value)
+
     //use api to send http request
     this.apiService.login(value).subscribe(response => {
      
      this.jsonResponse = response;
     
+      console.log(this.jsonResponse)
 
      if (!this.jsonResponse.success){
        this.isVisible = true;

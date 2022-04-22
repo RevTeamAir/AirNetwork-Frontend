@@ -20,15 +20,6 @@ export class ApiService {
     })
   }
 
-  uploadFile(profilePictureLocation: string, userId : number) {
-    const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
-    this.httpCli.post<any>(`https://localhost:9000/user/upload/${userId}`, fd)
-      .subscribe(resposeBody => {
-        console.log(resposeBody);
-      })
-  }
-
   getUserGivenId(userId : number){
     console.log("apiservice")
     return this.httpCli.get<any>(`http://localhost:9000/user/${userId}`)
@@ -71,10 +62,16 @@ export class ApiService {
     });
   }
 
+  toggleLike(userId : number, postId : number){
+    return this.httpCli.post<any>(`http://localhost:9000/like/author/${userId}/post/${postId}`, {
+      withCredentials: true
+    });
+  }
+
   getProfilePic(){
     return this.httpCli.post<any>('http://localhost:9000/upload/{userId}', this.createProfile, {
       withCredentials: true,
-    })
+    });
     
   }
   
@@ -82,6 +79,12 @@ export class ApiService {
     return this.httpCli.put<any>(`http://localhost:9000/user`,this.createProfile, {
       withCredentials: true
     } )
+  }
+
+  uploadProfilePic(userId : number, profilePicFile : any){
+    return this.httpCli.post<any>(`http://localhost:9000/user/upload/${userId}`, profilePicFile, {
+      withCredentials: true,
+    });
   }
 
 }
