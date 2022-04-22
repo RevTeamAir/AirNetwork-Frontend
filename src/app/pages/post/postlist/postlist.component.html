@@ -1,18 +1,3 @@
-<<<<<<< HEAD
- 
-<div class="postlist" *ngFor="let post of posts">
-  <div class="container postlist">
-    <div id="card-container" *ngFor="let post of posts; index as i">
-      <div class="card border">
-          <div id="post-name">{{post.authorIdFK.firstname}} {{post.authorIdFK.lastname}}</div>
-          <div id="img-container">
-            <img class="post-img" [src]="post.postImageLocation">
-          </div>
-          <p class="post-description">{{post.description}}</p>
-          <div class="date-like-container">
-            <div>
-              <p>{{post.creationDate | date}}</p>
-=======
 <div class="feed">
   <div >
     <div class="container">
@@ -22,7 +7,6 @@
             
             <div id="img-container" *ngIf="post.postImageLocation">
               <img class="post-img" [src]="post.postImageLocation">
->>>>>>> 8a8fe5cab65cb5cb39b082c259bedae10c05a1cd
             </div>
 
             <p class="post-description">{{post.description}}</p>
