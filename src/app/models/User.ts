@@ -1,7 +1,7 @@
 import { Post } from "./Post";
 
 export interface User{
-    userId: number;
+    id: number;
     username: string;
     password: string;
     firstname: string;

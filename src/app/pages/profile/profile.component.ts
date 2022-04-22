@@ -91,6 +91,9 @@ export class ProfileComponent implements OnInit {
   }
 
   updateInfo(form : any){
+     this.apiService.updateUserInfo(form, this.userId).subscribe(response =>{
+       console.log(response)
+     })
 
   }
   
