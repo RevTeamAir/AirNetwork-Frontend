@@ -100,7 +100,7 @@ export class ApiService {
     });
   }
 
-  updateUserInfo(form : User, userId : number){
+  updateUserInfo(form : any, userId : number){
     form.id = userId;
     return this.httpCli.put<any>('http://localhost:9000/user', form,{
       withCredentials: true 

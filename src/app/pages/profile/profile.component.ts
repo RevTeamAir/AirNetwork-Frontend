@@ -22,6 +22,8 @@ export class ProfileComponent implements OnInit {
   user : User = <User>{};
   isLike : number = 0;
   jsonResponse : JsonResponse = <JsonResponse>{};
+  public show: boolean = false;
+  //change this when done
  
   
 
@@ -42,7 +44,6 @@ export class ProfileComponent implements OnInit {
         
         )
     })
-
 
     this.apiService.checkSession().subscribe(response => {
       this.jsonResponse = response;
@@ -89,11 +90,17 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  updateInfo(form : any){
+  updateInfo(form : any, userId : number){
      this.apiService.updateUserInfo(form, this.userId).subscribe(response =>{
-       console.log(response)
+       this.jsonResponse = response;
+
+        console.log(response)
      })
 
+  } 
+
+  toggle(){
+    this.show = !this.show
   }
   
 }
