@@ -10,8 +10,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { PostcardComponent } from './pages/post/postcard/postcard.component';
 import { PostlistComponent } from './pages/post/postlist/postlist.component';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PictureComponent } from './upload/picture/picture.component';
 
 @NgModule({
@@ -22,7 +22,6 @@ import { PictureComponent } from './upload/picture/picture.component';
     FeedComponent,
     ProfileComponent,
     NavComponent,
-    PostcardComponent,
     PostlistComponent,
     PictureComponent
   ],
