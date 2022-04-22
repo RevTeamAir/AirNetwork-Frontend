@@ -6,9 +6,20 @@
           <img class="user-img" [src]="this.user.profilePictureLocation">
         <div class="user-info">
           <div ><h3>User Information</h3></div>
-          <div><span class="user-name">{{this.user.firstname}}</span><span>{{this.user.lastname}}</span></div>
+          <div><span>Welcome, </span><span class="user-name">{{this.user.firstname}}</span><span>{{this.user.lastname}}</span></div>
           <p>Bio: {{this.user.bio}}</p>
-          <div></div>         
+          <!-- <input type="file" (change)="onFileSelected($event)">
+          <button type="button" (click)="uploadFile()">Upload</button>    -->     
+          <form #editUserInfo="ngForm" (ngSubmit)="submit(editUserInfo.value)" id="create-profile-form">
+            <input type="text" id="fname" name="firstname" placeholder=" First Name" ngModel required>
+            <input type="text"id="lname" name="lastname" placeholder=" Last Name" ngModel required ><br>
+            <input type="text"id="username" name="username" placeholder=" Username"  ngModel required >
+            <input type="password"id="password" name="password" placeholder=" Password" ngModel required ><br>
+            <input type="email" id="email" name="email" placeholder=" Email" ngModel required><br>
+            <textarea type="text" id="bio" name="bio"  placeholder="  Tell us a little about yourself....." ngModel></textarea><br>
+            <button id="submit-btn" type="submit"> Update Profile </button> 
+          </form>
+          
         </div>
       </div>   
     </div>
@@ -31,7 +42,6 @@
                 <p *ngIf="!isLike" class="count">3</p>
               </div>
             </div>
-
         </div>
       </div>
     </div>

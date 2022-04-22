@@ -8,10 +8,7 @@ import { User } from '../models/User';
 })
 export class ApiService {
 
-  uploadFile(profilePictureLocation: string) {
-    
-  }
-
+  selectedFile : any = null;
   postId: any;
 
   constructor(private httpCli : HttpClient) { }
@@ -21,20 +18,29 @@ export class ApiService {
     return this.httpCli.post<any>('http://localhost:9000/user', createProfile,{
       withCredentials: true,
     })
-}
+  }
+
+  uploadFile(profilePictureLocation: string, userId : number) {
+    const fd = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+    this.httpCli.post<any>(`https://localhost:9000/user/upload/${userId}`, fd)
+      .subscribe(resposeBody => {
+        console.log(resposeBody);
+      })
+  }
 
   getUserGivenId(userId : number){
     console.log("apiservice")
-    return this.httpCli.get<any>(`http:localhost:9000/user/${userId}`)
+    return this.httpCli.get<any>(`http://localhost:9000/user/${userId}`)
 
   }
 
   getUsers(){
-    return this.httpCli.get<any>("http:localhost:9000/user")
+    return this.httpCli.get<any>("http://localhost:9000/user")
   }
 
   getAllPostsForUser(userId : number){
-    return this.httpCli.get<any>(`http:localhost:9000/post/${userId}`)
+    return this.httpCli.get<any>(`http://localhost:9000/post/${userId}`)
   }
 
   deleteOnePost(){
@@ -70,6 +76,12 @@ export class ApiService {
       withCredentials: true,
     })
     
+  }
+  
+  editUserInfo(){
+    return this.httpCli.put<any>(`http://localhost:9000/user`,this.createProfile, {
+      withCredentials: true
+    } )
   }
 
 }
