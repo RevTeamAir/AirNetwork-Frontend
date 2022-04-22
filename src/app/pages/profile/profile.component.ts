@@ -22,28 +22,26 @@ export class ProfileComponent implements OnInit {
   user : User = <User>{};
   isLike : number = 0;
   jsonResponse : JsonResponse = <JsonResponse>{};
+ 
+  
 
   constructor(private apiService : ApiService, private router : Router, private route: ActivatedRoute) {  }
   
   ngOnInit(): void {
 
     this.sub = this.route.params.subscribe(params => {
-      this.userId = +params['userId']; // (+) converts string 'id' to a number
-
+      this.userId = +params['userId']; 
       console.log(this.userId)
 
-      // send a request to grab user info
-      //this.apiService.getUserGivenId(this.userId).subscribe(response => {
-        // this.jsonResponse = response;
-        // this.user = this.jsonResponse.data;
-        // this.userId = this.jsonResponse.data.id;
-        // this.posts = this.jsonResponse.data.posts;
-
-      //})
-      
-
-   });
-
+      this.apiService.getUserGivenId(this.userId).subscribe(response=>{
+        this.jsonResponse = response;
+         this.user = this.jsonResponse.data;
+         this.userId = this.jsonResponse.data.id;
+         this.posts = this.jsonResponse.data.posts;
+      }
+        
+        )
+    })
 
 
     this.apiService.checkSession().subscribe(response => {
@@ -57,7 +55,8 @@ export class ProfileComponent implements OnInit {
         console.log("posts from profile: " + this.posts);
         console.log("user from profile:" + this.user.firstname);
       } else{
-        //this.router.navigate(['/']);
+        this.router.navigate(['/']);
+       
       }
 
 
@@ -80,9 +79,9 @@ export class ProfileComponent implements OnInit {
       formData.append("file", file);
 
       //send the api request to the backend
-      this.apiService.uploadProfilePic(this.userId,formData).subscribe(response => {
-        console.log(response);
-      });
+      // this.apiService.uploadProfilePic(this.userId,formData).subscribe(response => {
+      //   console.log(response);
+      // });
 
       // this.apiService.createPostWithPic(this.userId, formData).subscribe(response => {
         //console.log(response);

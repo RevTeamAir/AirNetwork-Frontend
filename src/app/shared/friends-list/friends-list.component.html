@@ -1,0 +1,20 @@
+<div class="friends-label">
+    <h1>Friends</h1>
+</div>
+<div class="friends-container">
+   <div *ngFor="let friend of friends" >
+       <button class="friend" 
+       [attr.id]="friend.id" 
+       [attr.firstname]="friend.firstname"
+       [attr.lastname]="friend.lastname"
+       [attr.username]="friend.username" 
+       [attr.bio]="friend.bio" 
+       [attr.posts]="friend.posts"
+       (click)="goToUser($event)">{{friend.username}}</button>
+       
+
+
+</div> 
+</div>
+
+

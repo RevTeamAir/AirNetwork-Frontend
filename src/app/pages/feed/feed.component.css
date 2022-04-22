@@ -1,9 +1,4 @@
-.body {
+.feed{
     background: linear-gradient(110deg, rgb(188, 186, 186) 60%, rgb(128, 125, 125) 60%);
 }
 
-.btn {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}

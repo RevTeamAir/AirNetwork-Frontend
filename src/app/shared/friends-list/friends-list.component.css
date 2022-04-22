@@ -1,0 +1,27 @@
+.friends-label{
+    margin-left:100px;
+    color: white;
+}
+
+.friends-container{
+    background-color: rgb(99, 118, 141);
+    text-align: left;
+    height: 450px;
+    width: 300px;
+    margin: 25px;
+    padding: 25px;
+    overflow: auto;
+    border-radius: 10px;
+    
+}
+
+.friend{
+    margin: 10px;
+    border: none;
+    background: rgb(188, 186, 186);
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    
+}
+

@@ -7,6 +7,10 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class ApiService {
+ 
+  searchOption: any[] = [];
+  username: string = "name";
+  userId: number = 1;
 
   uploadFile(profilePictureLocation: string) {
     
@@ -30,7 +34,7 @@ export class ApiService {
   }
 
   getUsers(){
-    return this.httpCli.get<any>("http:localhost:9000/user")
+    return this.httpCli.get<any>("http://localhost:9000/user?limit=25")
   }
 
   getAllPostsForUser(userId : number){
