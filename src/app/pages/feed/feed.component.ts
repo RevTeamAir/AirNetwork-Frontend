@@ -77,12 +77,6 @@ export class FeedComponent implements OnInit {
       this.ngOnInit(); //reload post
     })
     this.modalService.dismissAll(); //dismiss the modal
-
-    //const url = 'http://localhost:8888/friends/addnew';
-    /* this.httpClient.post(url, f.value).subscribe(response => {
-        this.ngOnInit(); //reload post
-      }); */
-    
   }
   
 }

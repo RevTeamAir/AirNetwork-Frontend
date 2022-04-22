@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PostlistComponent } from './pages/post/postlist/postlist.component';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import { PictureComponent } from './upload/picture/picture.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
     FeedComponent,
     ProfileComponent,
     NavComponent,
-    PostlistComponent
+    PostlistComponent,
+    PictureComponent
   ],
   imports: [
     BrowserModule,
