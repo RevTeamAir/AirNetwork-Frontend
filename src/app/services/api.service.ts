@@ -20,12 +20,12 @@ export class ApiService {
 
   getUserGivenId(userId : number){
     console.log("apiservice")
-    return this.httpCli.get<any>(`http:localhost:9000/user/${userId}`)
+    return this.httpCli.get<any>(`http://localhost:9000/user/${userId}`)
 
   }
 
   getAllPostsForUser(userId : number){
-    return this.httpCli.get<any>(`http:localhost:9000/post/${userId}`)
+    return this.httpCli.get<any>(`http://localhost:9000/post/${userId}`)
   }
 
   deleteOnePost(){
