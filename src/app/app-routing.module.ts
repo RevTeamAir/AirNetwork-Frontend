@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:"register", component: RegisterComponent},
 
   //http://localhost:4200/profile
-  {path:"profile", component: ProfileComponent},
+  {path:"profile/:userId", component: ProfileComponent},
  
   //http://localhost:4200/feed
   {path:"feed", component: FeedComponent},

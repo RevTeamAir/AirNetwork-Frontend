@@ -72,6 +72,8 @@ export class PostlistComponent implements OnInit {
     } 
 
     let postId : number = elem.id;
+
+    // let userId = e.target.id
     console.log(postId);
 
     // sending the request 
