@@ -1,27 +1,55 @@
-# AirnetworkFrontEnd
+# Air Network
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.2.
+## Project Description
 
-## Development server
+In this social network, everyone is friends with everyone. As a user, you will be able to register and login to your account. When you successfully login, you are automatically friends with everyone which means you will see a feed of everyone's posts. Users will be able to create a post and like other people's posts. Users will also have the ability to view other profiles which will display posts of that specific user.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Technologies Used
 
-## Code scaffolding
+* Spring Data - version 2021.1.4
+* Spring Boot - version 2.6
+* Spring MVC - version 5.3.18
+* PostgreSQL - version 9.4.26
+* Angular 2+ - version 13.1.1 
+* AWS RDS 
+* AWS S3
+* AWS EC2
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+* Users can create a profile
+* Users can login with the credentials they make using the 
+  create profile form
+* Users can upload profile pictures
+* Users can create posts with or without images
+* Users can like other users posts
+* Users can visit other users pages
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To-do list:
+* Make the transition between pages smoother
+* Improve formatting and design on profile page
 
-## Running unit tests
+## Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Make sure to clone both backend and frontend repositories:
 
-## Running end-to-end tests
+git clone https://github.com/RevTeamAir/AirNetworkProject
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+git clone https://github.com/RevTeamAir/AirNetwork-Frontend.git
 
-## Further help
+### Backend
+To run the Spring server:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Compile java code with javac AirNetworkApplication.java
+
+### Frontend
+To run the Angular server:
+
+ng serve
+
+Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+
+## Contributors
+
+Andrew Smith, Micaela Hughes, Lalitha Reddy, Olivier Nivose
